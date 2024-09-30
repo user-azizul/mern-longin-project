@@ -13,7 +13,7 @@ app.get("/ping", (req, res) => {
 });
 
 // Apply CORS middleware with options
-app.use(cors());
+app.use(cors({ origin: "https://mern-neon-eight.vercel.app" }));
 app.use(bodyParser.json());
 
 // Database connection
