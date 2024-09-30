@@ -40,15 +40,16 @@ function Signup() {
       });
 
       const result = await res.json();
+      console.log(result);
 
-      const { success, message } = result;
+      const { success, message, error } = result;
 
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
           navigate("/login");
         }, 1000);
-      } else if (!success) {
+      } else {
         handleError(result.details[0]);
       }
     } catch (error) {

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { handleError, handleSuccess } from "../utils/Utils";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,7 +39,7 @@ function Login() {
       const result = await res.json();
       console.log(result);
 
-      const { success, message, jwtToken, name } = result;
+      const { success, message, jwtToken, name, error } = result;
 
       if (success) {
         handleSuccess(message);
@@ -46,8 +48,10 @@ function Login() {
         setTimeout(() => {
           navigate("/");
         }, 1000);
-      } else if (!success) {
+      } else if (error) {
         handleError(result.details[0]);
+      } else {
+        handleError(message);
       }
     } catch (error) {
       handleError(error, "catch error");
