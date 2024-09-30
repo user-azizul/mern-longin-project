@@ -28,7 +28,7 @@ function Home() {
           Authorization: localStorage.getItem("token")
         }
       };
-      const url = `https://mern-2arg3wtw1-azizul-haques-projects-37f2c717.vercel.app/products`;
+      const url = `https://mern-neon-eight.vercel.app//products`;
       const res = await fetch(url, headers);
 
       if (!res.ok) {
