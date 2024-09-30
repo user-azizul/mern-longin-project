@@ -27,7 +27,8 @@ function Login() {
       return;
     }
     try {
-      const url = "http://localhost:8000/auth/login";
+      const url =
+        "https://mern-2arg3wtw1-azizul-haques-projects-37f2c717.vercel.app/auth/login";
       const res = await fetch(url, {
         method: "POST",
         headers: {
