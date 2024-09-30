@@ -7,20 +7,10 @@ const productsRouter = require("./Routes/ProductsRouter.js");
 
 require("dotenv").config();
 const app = express();
-const allowedOrigins = ["http://localhost:5173", "http://localhost:8000"];
 
-const corsOptions = {
-  origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true // If you want to allow cookies/auth headers
-};
+app.get("/ping", (req, res) => {
+  res.send("PONG");
+});
 
 // Apply CORS middleware with options
 app.use(cors());
