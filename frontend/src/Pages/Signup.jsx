@@ -30,7 +30,7 @@ function Signup() {
 
     setLoading(true);
     try {
-      const url = "https://mern-neon-eight.vercel.app//auth/signup";
+      const url = "https://mern-api-kappa.vercel.app/auth/signup";
       const res = await fetch(url, {
         method: "POST",
         headers: {

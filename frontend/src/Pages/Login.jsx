@@ -27,7 +27,7 @@ function Login() {
       return;
     }
     try {
-      const url = "https://mern-neon-eight.vercel.app/auth/login";
+      const url = "https://mern-api-kappa.vercel.app/auth/login";
       const res = await fetch(url, {
         method: "POST",
         headers: {
